@@ -3,6 +3,12 @@
 #define INCLUDE_TPQUEUE_H_
 #include <list>
 #include <utility>
+bool PredicateCH(const SYM &val1, const SYM &val2) {
+  return val1.ch < val2.ch;
+}
+bool PredicatePrior(const SYM &val1, const SYM &val2) {
+  return val1.prior > val2.prior;
+}
 template <typename T>
 class TPQueue {
  private:
@@ -34,14 +40,10 @@ class TPQueue {
       CopyObj = list1.front();
       if (CopyObj.prior == val.prior) {
         list1.push_front(val);
-        list1.sort(const SYM &val1, const SYM &val2, []() {
-          return val1.ch <= val2.ch;
-        });
+        list1.sort(PredicateCH);
       } else {
         list1.push_front(val);
-        list1.sort(const SYM &val1, const SYM &val2 []() {
-          return val1.ch <= val2.ch;
-        });
+        list1.sort(PredicatePrior);
       }
       head++;
     }
