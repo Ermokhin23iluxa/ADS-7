@@ -2,18 +2,23 @@
 #ifndef INCLUDE_TPQUEUE_H_
 #define INCLUDE_TPQUEUE_H_
 #include <list>
+
 template <typename T>
 class TPQueue {
  private:
-  list<T> list1;
+  std::list <T> list1;
   T CopyObj;
   int head;
+ 
  public:
-  TPQueue() :head(-1) { }
+  TPQueue() {
+    head = -1;
+  }
   bool isEmpty() {
     return head == -1;
   }
-  T pop():head(-1) {
+  T pop() {
+    head = -1;
     auto i = list1.front();
     list1.pop_front();
     return i;
@@ -30,11 +35,13 @@ class TPQueue {
       if (CopyObj.prior == val.prior) {
         list1.push_front(val);
         list.sort([](const SYM &val1, const SYM &val2) {
-          return val1.ch <= val2.ch});
+          return val1.ch <= val2.ch;
+        });
       } else {
         list1.push_front(val);
         list.sort([](const SYM &val1, const SYM &val2) {
-          return val1.ch <= val2.ch});
+          return val1.ch <= val2.ch;
+        });
       }
       head++;
     }
