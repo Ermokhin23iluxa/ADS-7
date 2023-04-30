@@ -34,12 +34,12 @@ class TPQueue {
       CopyObj = list1.front();
       if (CopyObj.prior == val.prior) {
         list1.push_front(val);
-        list1.sort([](const SYM &val1, const SYM &val2) {
+        list1.sort(const SYM &val1, const SYM &val2, []() {
           return val1.ch <= val2.ch;
         });
       } else {
         list1.push_front(val);
-        list1.sort([](const SYM &val1, const SYM &val2) {
+        list1.sort(const SYM &val1, const SYM &val2 []() {
           return val1.ch <= val2.ch;
         });
       }
