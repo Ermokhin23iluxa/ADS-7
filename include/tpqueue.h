@@ -9,6 +9,7 @@ class TPQueue {
   std::list <T> list1;
   T CopyObj;
   int head;
+
  public:
   TPQueue() {
     head = -1;
