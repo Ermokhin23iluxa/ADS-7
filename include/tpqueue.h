@@ -3,6 +3,12 @@
 #define INCLUDE_TPQUEUE_H_
 #include <list>
 #include <utility>
+
+struct SYM {
+  char ch;
+  int prior;
+};
+
 bool PredicateCH(const SYM &val1, const SYM &val2) {
   return val1.ch < val2.ch;
 }
@@ -48,11 +54,6 @@ class TPQueue {
       head++;
     }
   }
-};
-
-struct SYM {
-  char ch;
-  int prior;
 };
 
 #endif  // INCLUDE_TPQUEUE_H_
